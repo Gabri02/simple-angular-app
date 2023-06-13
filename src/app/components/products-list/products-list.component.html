@@ -1,0 +1,21 @@
+<app-top-bar></app-top-bar>
+
+<div class="margin-div">
+  <h2>Our products</h2>
+  <div *ngFor="let product of products; index as id">
+    <a routerLink="/products-list/{{ id }}">
+      <h2>
+        {{ product.name }}
+      </h2>
+    </a>
+    <p>
+      <b>{{ product.price | currency : "EUR" }}</b>
+    </p>
+    <p *ngIf="product.description">
+      {{ product.description }}
+    </p>
+    <button (click)="share()">Share</button>
+    <button *ngIf="product.price > 500" (click)="notify()">Notify me</button>
+    <button (click)="addToCart(product)">Buy</button>
+  </div>
+</div>

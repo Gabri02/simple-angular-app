@@ -1,0 +1,8 @@
+<app-top-bar />
+<div class="margin-div">
+  <h2>shipping cost</h2>
+  <div class="shipping-div" *ngFor="let shipping of shippingCost | async">
+    <span>{{ shipping.type }}</span>
+    <span>{{ shipping.price | currency : "EUR" }}</span>
+  </div>
+</div>
